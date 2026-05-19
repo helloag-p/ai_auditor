@@ -1,0 +1,61 @@
+SimplifIQ AI Software Developer Intern Assessment
+Reflection
+
+The purpose of this project is to implement full automatic lead qualification and reach out through AI-based business analytics with automated reporting.
+
+Key objective was to create an end-to-end simulation of real-life B2B automation process where the user can submit their company data and automatically receive the tailored AI generated audit report without manual involvement.
+
+The steps of the workflow included in this project are the following:
+
+lead intake form submission
+website scraping/enrichment
+company analysis powered by AI
+professional PDF report creation
+report sent by email
+instant report download
+
+Special emphasis was placed on ensuring stability of workflow even in the event of service failure. Because many websites nowadays restrict web scraping via anti-bot technology provided by third-party service providers such as Cloudflare, it is crucial that the system will be able to gracefully degrade and analyze available information about company through contextualized AI.
+Another key focus of the project was on report quality and personalization. A considerable amount of time was devoted to refining the engineering of prompts for generating high-quality reports that resemble professional consulting rather than generic reports from an AI. This includes:
+
+executive summaries
+UX and website audits
+SEO suggestions
+AI automation suggestions
+growth suggestions
+strategic insight
+
+Finally, much attention was paid to making the frontend experience better and resembling a production-ready SaaS application rather than simply an application for completing assignments. Additional features included:
+
+progress indicator for state changes
+state indicators for success states
+SaaS UI design inspiration
+ability to download in PDF format
+
+A difficulty that was experienced during development included the restrictions of Resend's free tier testing. Using the default testing domain,
+
+onboarding@resend.dev
+
+the emails would be restricted to deliver to only verified addresses registered within the Resend account. This limitation of Resend's restriction meant that to accommodate testing, an option for immediate PDF download together with automated email was incorporated.
+
+Another intended feature to be incorporated was lead logging in Google Sheets and archiving in Google Drive using Google Service Accounts and Google APIs. The architectural planning for the integration was completed; however, implementation and deployment of the process would require additional configurations from Google Cloud services and service accounts outside the scope of this assessment. Given the nature of evaluation criteria focused mainly on automation processes, AI integration, report generation, and user interface design, more focus was dedicated to developing the system and making it functional at all points.
+
+In view of the architectural design, future additions to the application include but are not limited to:
+
+Google Sheets integration
+Google Drive integration
+CRM synchronization
+authentication services
+analytics dashboards
+can be added easily in future iterations.
+
+If given more development time, future improvements would include:
+
+cloud PDF storage
+AI scoring systems for leads
+CRM integrations
+admin dashboards
+historical report management
+asynchronous job queues
+multi-template report generation
+
+Overall, this project was a strong opportunity to demonstrate practical backend automation, AI integration, frontend product thinking, error handling, and real-world engineering tradeoffs while building a polished end-to-end workflow system.
