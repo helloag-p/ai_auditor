@@ -38,26 +38,51 @@ const createLead = async (req, res) => {
 
     console.log("STEP 3 → Creating PDF");
 
-    const pdfPath = await generatePDF({
-      companyName,
-      report,
-    });
+    let pdfPath = null;
+
+try {
+
+  pdfPath = await generatePDF({
+    companyName,
+    report,
+  });
+
+} catch (err) {
+
+  console.log(
+    "PDF generation failed"
+  );
+
+  pdfPath = null;
+}
 
     console.log("PDF PATH:", pdfPath);
 
     console.log("STEP 4 → Sending Email");
 
-    await sendAuditEmail({
-      email,
-      companyName,
-      pdfPath,
-    });
+if (pdfPath) {
+
+  await sendAuditEmail({
+    email,
+    companyName,
+    pdfPath,
+  });
+
+} else {
+
+  console.log(
+    "Skipping email because PDF generation failed"
+  );
+}
 
     return res.status(200).json({
       success: true,
       message:
         "AI audit generated successfully",
-      pdfPath,
+      
+  pdfPath: pdfPath
+    ? `${process.env.BASE_URL}/${pdfPath}`
+    : null,
     });
 
   } catch (error) {
