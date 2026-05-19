@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* You no longer need to wrap custom CSS in @layer components/utilities in v4 */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #050505;
+  color: #ffffff;
+}
